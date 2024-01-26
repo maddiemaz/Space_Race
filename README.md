@@ -4,7 +4,7 @@ Based on "Avoider" Game
 
 Game where you steer a ship through a series of obstacles, trying to avoid hitting them and losing life, and reach the finish line.
 
-=================================================================
+=====================================================
 # Basic Goals:
 	- Switch pages (start, instructions, play)
 		○ Popups for win/lose, replay
@@ -39,7 +39,7 @@ Game where you steer a ship through a series of obstacles, trying to avoid hitti
 			§ Where/how would these be saved?
 		○ Show upon win
 
-=================================================================
+=====================================================
 # Gameplan
 	- Start by building intro pages; simple
 	- Focus on building game page; work out JavaScript before worrying about the look
@@ -57,7 +57,7 @@ Game where you steer a ship through a series of obstacles, trying to avoid hitti
 		○ Add in artwork / build CSS
 		○ Additional features if time / if feasible
 
-================================================================
+=====================================================
 # Pseudocode
 # Flow
 Standard: Start Page / Instructions Page / Game Page / Results Popup
