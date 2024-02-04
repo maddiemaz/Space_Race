@@ -1,0 +1,130 @@
+/* Add traits to all elements */
+*{
+    margin:0;
+    padding: 0;
+}
+
+body{
+    /* background-image: url(background.jpg) none center;
+    background-size: cover; */
+
+    background-color: green;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+#start{
+    position: absolute;
+    top: 60vh;
+    left: 47vw;
+    z-index: 100;
+
+    font-size: 2rem;
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#score{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    font-size: 2rem;
+    padding: 5;
+    background-color: white;
+    border-radius: 1px;
+}
+
+#road {
+    /* background-image: url(road.png) repeat-y; */
+   
+    background-color: #333;
+    height: 1200vh; /*(long enough to scroll through) */
+    width: 50vw;
+    position: relative;
+    top: -80vh;
+    z-index: -10;
+}
+
+#enemyCar_1, #enemyCar_2, #enemyCar_3, #enemyCar_4, #playerCar {
+    display: grid;
+    place-items: center;
+    position: relative;
+    z-index: 101;
+
+    height: 140px;
+    width: 80px;
+}
+
+#enemyCar_1{
+    background-color: aqua;
+    left: -300px;
+
+    animation: enemyCar_1 infinite linear 3s;
+}
+#enemyCar_2{    
+    background-color: blue;
+    left: -100px;
+
+    animation: enemyCar_2 infinite linear 6s;
+}
+#enemyCar_3{
+    background-color: cornflowerblue;
+    left: 100px;
+
+    animation: enemyCar_3 infinite linear 4s;
+}
+#enemyCar_4{
+    background-color: skyblue;
+    left: 300px;
+
+    animation: enemyCar_4 infinite linear 5s;
+}
+
+#playerCar{
+    background-color: coral;
+    top: 15vh;
+
+}
+
+/* .eCarImg, .myCarImg {
+    width: 80px;
+} */
+
+/* Animations */
+@keyframes enemyCar_1 {
+    0%{
+        top: -30vh;
+    }
+    100%{
+        top: 100vh;
+    }
+}
+@keyframes enemyCar_2 {
+    0%{
+        top: -70vh;
+    }
+    100%{
+        top: 100vh;
+    }
+}
+@keyframes enemyCar_3 {
+    0%{
+        top: -50vh;
+    }
+    100%{
+        top: 100vh;
+    }
+}
+@keyframes enemyCar_4 {
+    0%{
+        top: -80vh;
+    }
+    100%{
+        top: 100vh;
+    }
+}

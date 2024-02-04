@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&family=VT323&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Silkscreen', sans-serif;
+}
+body {
+    background-color: #333;
+}
+.background {
+    padding-top: 0;
+    height: 70vh;
+    width:100vw;
+    background-image: url('Assets/basic_Background.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 2rem solid blueviolet;
+    background-color: skyblue;
+
+    position: fixed;
+    z-index: 1;
+    top: 0vh;
+    left: 0vw;
+}
+
+.healthScore {
+    background-color: black;
+    border: 1rem solid rgb(71, 70, 70);
+    color: aqua;
+    font-size: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 20rem;
+
+    position: fixed;
+    top: 3.7vh;
+    left: 2rem;
+    z-index: 80;
+}
+
+.popup {
+    background-color: blueviolet;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 600px;
+    width: 70vw;
+    height: 40vh;
+    border-radius: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    position: fixed;
+    top: 15vh;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 100;
+}
+#popupResult {
+    font-size: 2.5rem;
+    color: gold;
+    font-weight: bolder;
+}
+#popupMessage {
+    font-size: 1.5rem;
+    color: white;
+    padding-bottom: 1rem;
+}
+#popupScore {
+    font-size: 1.5rem;
+    color: gold;
+    font-weight: bold;
+    padding-bottom: 1rem;
+}
+#replayButton, #backtostartButton {
+    background-color: blueviolet;
+    font-size: 1.5rem;
+    color: white;
+    width: 75%;
+    border-radius: .5rem;
+}
+
+/* .obstacleGroup {
+    display: grid;
+    place-items: end;
+    position: relative;
+    z-index: 75;
+    padding-right: 1rem;
+}
+#obstacle1 {
+    width: 6rem;
+    height: 16rem;
+
+    background: radial-gradient(gold 50%, goldenrod);
+    border: 5px solid black;
+    border-radius: 2rem 2rem 0 0;
+    
+    left: -200vw;
+
+    animation: obstacle1 infinite linear 3s;
+} */
+
+.obSprite {
+    position: fixed;
+    top: 40vh;
+    left: 100vw;
+    height: 70vh;
+    width: 6;
+    background: radial-gradient(gold 50%, goldenrod);
+    border: 5px solid black;
+    border-radius: 2rem;
+}
+
+
+#player {
+    width: 16rem;
+    height: 7rem;
+    /* background-image: url(Assets/pod.png);
+    background-size: 7rem 7rem; */
+    /* background-color: white;
+    border: 5px solid black; */
+
+    display: grid;
+    place-items: center;
+    position: relative;
+    z-index: 50;
+
+    top: 42vh;
+    left: 10vw;
+}

@@ -1,0 +1,48 @@
+body {
+    background: #333;
+}
+
+.header {
+    padding-bottom: 5px;
+    color: white;
+    font-family: sans-serif;
+}
+
+.grid {
+    /* limits space to only what's specified/necessary: */
+    display: inline-grid;
+    /* 10 columns of 100px width x 7 rows of 50 px height: */
+    grid-template-columns: repeat(10, 100px);
+    grid-template-rows: repeat(7, 50px);
+    /* padding around entire grid: */
+    padding: 10px;
+    /* space between cells: */
+    gap: 5px;
+    
+    transform: rotate(90deg); /************** */
+
+    border: 15px solid blueviolet;
+    background: cornflowerblue;
+}
+.cell {
+    /* match height to width specified in column above: */
+    height: 50px;
+}
+
+.player {
+    background-color: white;
+    width: 100%;
+    height: 50%;
+    border-radius: 50%;
+}.obstacle {
+    background-color: goldenrod;
+    width: 40%;
+    height: 300%;
+    border-radius: 50%;
+}
+.powerUp {
+    background-color: hotpink;
+    width: 40%;
+    height: 40%;
+    border-radius: 50%;
+}

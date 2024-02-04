@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&family=VT323&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Silkscreen', sans-serif;
+}
+body {
+    background-color: #333;
+}
+.background {
+    height: 70vh;
+    width:100vw;
+    background-image: url('Assets/basic_Background.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 2rem solid blueviolet;
+    background-color: skyblue;
+}
+
+.popup {
+    background-color: blueviolet;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 600px;
+    width: 70vw;
+    height: 40vh;
+    border-radius: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    position: fixed;
+    top: 15vh;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 100;
+}
+#popupTitle {
+    font-size: 2.5rem;
+    color: gold;
+    font-weight: bolder;
+}
+#popupMessage {
+    font-size: 1.5rem;
+    color: white;
+    padding-bottom: 1rem;
+}
+
+#playButton, #instructionsButton {
+    background-color: blueviolet;
+    font-size: 1.5rem;
+    color: white;
+    width: 75%;
+    border-radius: .5rem;
+}

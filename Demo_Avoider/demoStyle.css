@@ -1,0 +1,39 @@
+body {
+    background: #333;
+}
+
+.header {
+    padding-bottom: 5px;
+    color: white;
+    font-family: sans-serif;
+}
+
+.grid {
+    /* limits space to only what's specified/necessary: */
+    display: inline-grid;
+    /* 3 columns of 30 px width inside the grid: */
+    grid-template-columns: repeat(3, 30px);
+    /* padding around entire grid: */
+    padding: 20px;
+    /* space between cells: */
+    gap: 5px;
+    border: 1px solid white;
+    background: #222;
+}
+.cell {
+    /* match height to width specified in column above: */
+    height: 30px;
+
+}
+
+.enemy, .player {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.enemy {
+    background-color: red;
+}
+.player {
+    background-color: aqua;
+}
