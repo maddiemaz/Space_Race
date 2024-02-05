@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&family=VT323&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Silkscreen', sans-serif;
+}
+body {
+    background-color: #333;
+}
+.background {
+    padding-top: 0;
+    height: 70vh;
+    width:100vw;
+    background-image: url('Assets/basic_Background.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 2rem solid blueviolet;
+    background-color: skyblue;
+
+    position: fixed;
+    z-index: 1;
+    top: 0vh;
+    left: 0vw;
+}
+
+#score {
+    background-color: black;
+    border: 1rem solid rgb(71, 70, 70);
+    color: aqua;
+    font-size: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 20rem;
+
+    position: fixed;
+    top: 3.7vh;
+    left: 2rem;
+    z-index: 80;
+}
+
+.obstacleGroup {
+    display: grid;
+    place-items: end;
+    position: fixed;
+    z-index: 75;
+    padding-right: 1rem;
+}
+#obstacle1 {
+    width: 6rem;
+    height: 16rem;
+
+    background: radial-gradient(gold 50%, goldenrod);
+    border: 5px solid black;
+    border-radius: 2rem 2rem 0 0;
+    
+    z-index: 80;
+    position: fixed;
+    right: 100vw;
+    top: 37vh;
+
+    animation: obstacle1 infinite linear 6s;
+}
+#obstacle2 { 
+    width: 8rem;
+    height: 12rem;
+    border-radius: 3rem 1rem 0 0;
+
+    background: radial-gradient(orange 50%, coral);
+    border: 5px solid black;
+
+    z-index: 40;
+    position: fixed;
+    right: 75vw;
+    top: 25vh;
+
+    animation: obstacle2 infinite linear 5s;
+}
+#obstacle3 {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 2rem;
+
+    background: radial-gradient(gold 50%, goldenrod);
+    border: 5px solid black;
+
+    z-index: 85;
+    position: fixed;
+    right: 100vw;
+    top: 18vh;
+
+    animation: obstacle3 infinite linear 6s;
+}
+#obstacle4 {
+    width: 10rem;
+    height: 6rem;
+
+    background: radial-gradient(gray 50%, red);
+    border: 5px solid black;
+
+    z-index: 70;
+    position: fixed;
+    right: 80vw;
+    top: 10vh;
+
+    animation: obstacle4 infinite linear 5s;
+}
+@keyframes obstacle1 {
+    0%{left: 98vw;}
+    100%{left: 2vw;}
+}
+@keyframes obstacle2 {
+    0%{left: 98vw;}
+    100%{left: 2vw;}
+}
+@keyframes obstacle3 {
+    0%{left: 98vw;}
+    100%{left: 2vw;}
+}
+@keyframes obstacle4 {
+    0%{left: 98vw;}
+    100%{left: 2vw;}
+}
+
+#player {
+    width: 10rem;
+    height: 4rem;
+
+    background-color: white;
+    border: 5px solid black;
+
+    display: grid;
+    place-items: center;
+    position: relative;
+    z-index: 50;
+
+    top: 42vh;
+    left: 10vw;
+}

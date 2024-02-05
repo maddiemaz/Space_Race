@@ -36,5 +36,5 @@ instructionsButton.addEventListener('click', () => {
 // Play Button -> Start Game
 playButton.addEventListener('click', () => {
     // Move to Game HTML/CSS/JS
-    window.location.href = "game.html"
+    window.location.href = "game_cleaned.html"
 })

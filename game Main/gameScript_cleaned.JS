@@ -4,17 +4,6 @@
 let countdown = document.querySelector('.countdown')
 let score = document.querySelector('.score')
 
-// let healthScore = document.querySelector('.healthScore')
-
-let popup = document.querySelector('.popup')
-let popupResult = document.getElementById('popupResult')
-let popupMessage = document.getElementById('popupMessage')
-let popupScore = document.getElementById('popupScore')
-
-let replayButton = document.getElementById('replayButton')
-let backtostartButton = document.getElementById('backtostartButton')
-
-
 // Position of Player @ Start
 //  -> Top - match to specified in CSS
 let t=42
@@ -49,30 +38,6 @@ document.addEventListener("keydown", function(event) {
     player.style.top=`${t}vh`
     player.style.left=`${l}vh`
  
-    // // Randomize Obstacles appearing
-    // setInterval(()=>{
-    //     // num=Math.floor(Math.random()*(max-min+1)+min)
-    //     // num=Math.floor(Math.random()*((-200)-(-300)+1)+(-300))
-    //     num=Math.floor(Math.random()*(400+500+1)-500)
-    //     // Only the x-coordinates are affected
-    //     document.getElementById("obstacle1").style.top=`${num}px`
-    // },2000)
-    // setInterval(()=>{
-    //     // num=Math.floor(Math.random()*((-100)-(-200)+1)+(-100))
-    //     num=Math.floor(Math.random()*(-100+200+1)-100)
-    //     document.getElementById("obstacle2").style.top=`${num}px`
-    // },4000)
-    // setInterval(()=>{
-    //     // num=Math.floor(Math.random()*((100)-(-100)+1)+(100))
-    //     num=Math.floor(Math.random()*(100+100+1)+100)
-    //     document.getElementById("obstacle3").style.top=`${num}px`
-    // },3000)
-    // setInterval(()=>{
-    //     // num=Math.floor(Math.random()*((300)-(200)+1)+(200))
-    //     num=Math.floor(Math.random()*(300-200+1)+200)
-    //     document.getElementById("obstacle4").style.top=`${num}px`
-    // },5000)
-
     // Obstacle Animations
     document.getElementById("obstacle1").style.animation='obstacle1 2s linear infinite'
     document.getElementById("obstacle2").style.animation='obstacle2 4s linear infinite'
@@ -154,51 +119,3 @@ document.addEventListener("keydown", function(event) {
 
 
 });
-
-
-
-// // // Show/Hide Text Components - Result Popup (Win)
-// let gameState = 'End_Win'
-
-// countdown.style.display = 'none'
-// healthScore.style.display = 'none'
-
-// popup.style.display = 'flex'
-// popupResult.innerHTML = 'Congratulations!'
-// popupResult.style.fontSize = '2.5rem'
-// popupMessage.style.display = 'You survived the race!'
-// popupScore.style.display = 'Your Score: '
-
-// playButton.style.display = 'none'
-// instructionsButton.style.display = 'none'
-// replayButton.style.display = 'block'
-// backtostartButton.style.display = 'block'
-
-// player.style.display = 'none'
-
-// // // Show/Hide Text Components - Result Popup (Lose)
-// let gameState = 'End_Lose'
-
-// countdown.style.display = 'none'
-// healthScore.style.display = 'none'
-
-// popup.style.display = 'flex'
-// popupResult.innerHTML = 'You Crashed!'
-// popupResult.style.fontSize = '2.5rem'
-// popupMessage.style.display = 'You sustained too much damage!'
-// popupScore.style.display = 'none'
-
-// playButton.style.display = 'none'
-// instructionsButton.style.display = 'none'
-// replayButton.style.display = 'block'
-// backtostartButton.style.display = 'block'
-
-// player.style.display = 'none'
-
-
-
-// Back to Start Button -> Start Menu
-backtostartButton.addEventListener('click', () => {
-    // Move to Game HTML/CSS/JS
-    window.location.href = "startMenu.html"
-})

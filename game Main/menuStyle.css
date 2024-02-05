@@ -10,8 +10,7 @@ body {
     background-color: #333;
 }
 .background {
-    /* height: 70vh; */
-    height: 100vh;
+    height: 70vh;
     width: 100vw;
     background-image: url('Assets/basic_Background.png');
     background-repeat: no-repeat;
