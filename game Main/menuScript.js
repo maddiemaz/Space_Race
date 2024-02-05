@@ -6,9 +6,9 @@ let popup = document.querySelector('.popup')
 let popupTitle = document.getElementById('popupTitle')
 let popupMessage = document.getElementById('popupMessage')
 
-let image1 = document.getElementById('image1')
-let image2 = document.getElementById('image2')
-let image3 = document.getElementById('image3')
+// let image1 = document.getElementById('image1')
+// let image2 = document.getElementById('image2')
+// let image3 = document.getElementById('image3')
 
 let playButton = document.getElementById('playButton')
 let instructionsButton = document.getElementById('instructionsButton')
