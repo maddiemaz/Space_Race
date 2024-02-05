@@ -1,7 +1,5 @@
 // Primarily adapted by Car Demo & Bird Demo (see Read Me)
 
-// Define Text Components
-let countdown = document.querySelector('.countdown')
 let score = document.querySelector('.score')
 
 // Position of Player @ Start
