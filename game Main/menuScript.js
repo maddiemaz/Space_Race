@@ -27,7 +27,7 @@ instructionsButton.addEventListener('click', () => {
     popupTitle.innerHTML = 'Instructions'
     popupTitle.style.fontSize = '2rem'
     popupMessage.style.display = 'block'
-    popupMessage.innerHTML = 'Use the arrow keys to move. Dodge the obstacles and collect the powerups. If health = 0, you lose'
+    popupMessage.innerHTML = 'Use the arrow keys avoid the obstacles and avoid crashing.'
 
     playButton.style.display = 'block'
     instructionsButton.style.display = 'none'
@@ -36,5 +36,5 @@ instructionsButton.addEventListener('click', () => {
 // Play Button -> Start Game
 playButton.addEventListener('click', () => {
     // Move to Game HTML/CSS/JS
-    window.location.href = "game_alt.html"
+    window.location.href = "game.html"
 })

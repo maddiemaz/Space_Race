@@ -11,7 +11,7 @@ body {
 }
 .background {
     padding-top: 0;
-    height: 70vh;
+    height: 100vh;
     width:100vw;
     background-image: url('Assets/basic_Background.png');
     background-repeat: no-repeat;
@@ -26,7 +26,7 @@ body {
     left: 0vw;
 }
 
-.healthScore {
+.scoreValue {
     background-color: black;
     border: 1rem solid rgb(71, 70, 70);
     color: aqua;
@@ -35,6 +35,8 @@ body {
     padding-right: 1rem;
     width: 20rem;
 
+    display: block;
+
     position: fixed;
     top: 3.7vh;
     left: 2rem;
@@ -42,72 +44,23 @@ body {
 }
 
 .popup {
-    background-color: blueviolet;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    max-width: 600px;
-    width: 70vw;
-    height: 40vh;
-    border-radius: 1.5rem;
+    position: absolute;
+    z-index: 10;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    color: white;
     text-align: center;
 
-    position: fixed;
-    top: 15vh;
-    left: 0;
-    right: 0;
-    margin: auto;
-    z-index: 100;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%)
 }
-#popupResult {
-    font-size: 2.5rem;
-    color: gold;
-    font-weight: bolder;
-}
-#popupMessage {
-    font-size: 1.5rem;
-    color: white;
-    padding-bottom: 1rem;
-}
-#popupScore {
-    font-size: 1.5rem;
-    color: gold;
-    font-weight: bold;
-    padding-bottom: 1rem;
-}
-#replayButton, #backtostartButton {
-    background-color: blueviolet;
-    font-size: 1.5rem;
-    color: white;
-    width: 75%;
-    border-radius: .5rem;
+.popupStyle {
+    background: blueviolet;
+    padding: 30px;
+    border-radius: 20%;
 }
 
-/* .obstacleGroup {
-    display: grid;
-    place-items: end;
-    position: relative;
-    z-index: 75;
-    padding-right: 1rem;
-}
-#obstacle1 {
-    width: 6rem;
-    height: 16rem;
-
-    background: radial-gradient(gold 50%, goldenrod);
-    border: 5px solid black;
-    border-radius: 2rem 2rem 0 0;
-    
-    left: -200vw;
-
-    animation: obstacle1 infinite linear 3s;
-} */
-
-.obSprite {
+.obstacle {
     position: fixed;
     top: 40vh;
     left: 100vw;
@@ -124,14 +77,14 @@ body {
     height: 7rem;
     /* background-image: url(Assets/pod.png);
     background-size: 7rem 7rem; */
-    /* background-color: white;
-    border: 5px solid black; */
+    background-color: white;
+    border: 5px solid black;
 
     display: grid;
     place-items: center;
     position: relative;
     z-index: 50;
 
-    top: 42vh;
+    top: 40vh;
     left: 10vw;
 }

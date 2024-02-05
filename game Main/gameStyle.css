@@ -25,11 +25,8 @@ body {
     top: 0vh;
     left: 0vw;
 }
-/* .countdown {
 
-} */
-
-.healthScore {
+#score {
     background-color: black;
     border: 1rem solid rgb(71, 70, 70);
     color: aqua;
@@ -44,7 +41,7 @@ body {
     z-index: 80;
 }
 
-.popup {
+/* .popup {
     background-color: blueviolet;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -53,7 +50,7 @@ body {
     height: 40vh;
     border-radius: 1.5rem;
 
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -70,17 +67,23 @@ body {
     font-size: 2.5rem;
     color: gold;
     font-weight: bolder;
+
+    display: none;
 }
 #popupMessage {
     font-size: 1.5rem;
     color: white;
     padding-bottom: 1rem;
+
+    display: none;
 }
 #popupScore {
     font-size: 1.5rem;
     color: gold;
     font-weight: bold;
     padding-bottom: 1rem;
+
+    display: none;
 }
 #replayButton, #backtostartButton {
     background-color: blueviolet;
@@ -88,12 +91,14 @@ body {
     color: white;
     width: 75%;
     border-radius: .5rem;
-}
+
+    display: none;
+} */
 
 .obstacleGroup {
     display: grid;
     place-items: end;
-    position: relative;
+    position: fixed;
     z-index: 75;
     padding-right: 1rem;
 }
@@ -105,19 +110,12 @@ body {
     border: 5px solid black;
     border-radius: 2rem 2rem 0 0;
     
-    left: -200vw;
+    z-index: 80;
+    position: fixed;
+    right: 100vw;
+    top: 37vh;
 
-    animation: obstacle1 infinite linear 3s;
-}
-/* #obstacle1-5 {
-    width: 6rem;
-    height: 8rem;
-
-    background: radial-gradient(gold 50%, goldenrod);
-    border: 5px solid black;
-    border-radius: 0 0 2rem 2rem;
-
-    animation: obstacle1-5 infinite linear 3s;
+    animation: obstacle1 infinite linear 6s;
 }
 #obstacle2 { 
     width: 8rem;
@@ -127,7 +125,12 @@ body {
     background: radial-gradient(orange 50%, coral);
     border: 5px solid black;
 
-    animation: obstacle2 infinite linear 3s;
+    z-index: 40;
+    position: fixed;
+    right: 75vw;
+    top: 25vh;
+
+    animation: obstacle2 infinite linear 5s;
 }
 #obstacle3 {
     width: 6rem;
@@ -137,7 +140,12 @@ body {
     background: radial-gradient(gold 50%, goldenrod);
     border: 5px solid black;
 
-    animation: obstacle3 infinite linear 3s;
+    z-index: 85;
+    position: fixed;
+    right: 100vw;
+    top: 18vh;
+
+    animation: obstacle3 infinite linear 6s;
 }
 #obstacle4 {
     width: 10rem;
@@ -146,28 +154,29 @@ body {
     background: radial-gradient(gray 50%, red);
     border: 5px solid black;
 
-    animation: obstacle4 infinite linear 3s;
-} */
-@keyframes obstacle1 {
-    0%{left: -30vh;}
-    100%{left: 100vh;}
+    z-index: 70;
+    position: fixed;
+    right: 80vw;
+    top: 10vh;
+
+    animation: obstacle4 infinite linear 5s;
 }
-/* @keyframes obstacle1-5 {
-    0%{top: -30vh;}
-    100%{top: 100vh;}
+@keyframes obstacle1 {
+    0%{left: 98vw;}
+    100%{left: 2vw;}
 }
 @keyframes obstacle2 {
-    0%{top: -70vh;}
-    100%{top: 100vh;}
+    0%{left: 98vw;}
+    100%{left: 2vw;}
 }
 @keyframes obstacle3 {
-    0%{top: -50vh;}
-    100%{top: 100vh;}
+    0%{left: 98vw;}
+    100%{left: 2vw;}
 }
 @keyframes obstacle4 {
-    0%{top: -80vh;}
-    100%{top: 100vh;}
-} */
+    0%{left: 98vw;}
+    100%{left: 2vw;}
+}
 
 
 /* .powerupGroup {
@@ -185,12 +194,12 @@ body {
 } */
 
 #player {
-    width: 16rem;
-    height: 7rem;
+    width: 10rem;
+    height: 4rem;
     /* background-image: url(Assets/pod.png);
     background-size: 7rem 7rem; */
-    /* background-color: white;
-    border: 5px solid black; */
+    background-color: white;
+    border: 5px solid black;
 
     display: grid;
     place-items: center;

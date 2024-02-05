@@ -1,115 +1,80 @@
+// Player Variables & Properties
+let moveSpeed = 3, gravity = 0.5
+let player = document.querySelector('.player')
+let player_prop = player.getBoundingClientRect()
+
+//  -> get DOMReact for background to use (top, right, bottom, left), (x & y), (width & height)
+let background = document.querySelector('.background').getBoundingClientRect()
+
 // Define Text Components
-// let countdown = document.querySelector('.countdown')
-// let healthScore = document.querySelector('.healthScore')
 let scoreValue = document.querySelector('.scoreValue')
-let scoreTitle = document.querySelector('.scoreTitle')
-
 let popup = document.querySelector('.popup')
-let popupResult = document.getElementById('popupResult')
-let popupMessage = document.getElementById('popupMessage')
-let popupScore = document.getElementById('popupScore')
-
-let replayButton = document.getElementById('replayButton')
-let backtostartButton = document.getElementById('backtostartButton')
-
-// // Game Components
-// let background = document.querySelector('.background').getBoundingClientRect()
-
-// Show/Hide Text Components - Game Play
-let gameState = 'Game_Play'
-
-// countdown.style.display = 'none'
-healthScore.style.display = 'block'
-
-popup.style.display = 'none'
-popupResult.innerHTML = 'none'
-popupMessage.style.display = 'none'
-popupScore.style.display = 'none'
-
-playButton.style.display = 'none'
-instructionsButton.style.display = 'none'
-replayButton.style.display = 'none'
-backtostartButton.style.display = 'none'
-
-player.style.display = 'block'
 
 
-// Score Data
-scoreTitle.innerHTML = 'Score: '
-scoreValue.innerHTML = '0'
- 
-// let moveSpeed = 3
-let player = document.getElementById('player')
-let player_props = player.getBoundingClientRect()
+// Start Display
+let game_state = 'Start'
+// player.style.display = 'none'
+popup.classList.add('popupStyle')
 
-
-// Position of Player @ Start
-//  -> Top - match to specified in CSS
-let t=42
-//   -> Left - match to specified in CSS (which is none, so 0)
-let l=10
-
-// Move player w arrow keys
-document.addEventListener("keydown", function(event) {
-    if (event.key == "ArrowLeft"){
-    //    alert("Left key");
-        l=l-3
-    } else if (event.key == "ArrowUp"){
-        t=t-3
-    //    alert("Up key");
-    } else if (event.key == "ArrowRight"){
-        l=l+3
-    //    alert("Right key");
-    } else if (event.key == "ArrowDown"){
-        t=t+3
-    //    alert("Down key");
-    }
+// Start Game
+document.addEventListener('keydown', (e) => {
+    // Start game if enter key is pressed
+    if (e.key == 'Enter' && game_state != 'Play') {
+        // If game is not in play, remove any/all pipe sprites
+        document.querySelectorAll('.obstacle').forEach((e) => {
+            e.remove()
+        })
+        // Player appears
+        // player.style.display = 'block'
+        // player.style.top = '40vh'
     
-    player.style.top=`${t}vh`
-    player.style.left=`${l}vh`
- });
+        // Change Game State
+        game_state = 'Play'
+    
+        // Score Data
+        scoreValue.innerHTML = '0'
 
- function play() {
+        // Get rid of popup
+        popup.innerHTML = ''
+        popup.classList.remove('popupStyle')
+
+        play()
+    }
+})
+
+function play() {
     function move() {
         // Ignore if game is not in play
         if (game_state != 'Play') return
 
-        let obSprite = document.querySelectorAll('.obSprite')
-        obSprite.forEach((element) => {
-            // use obstacle & player bounding properties to evaluate
-            let obSprite_props = element.getBoundingClientRect()
-            player_props = player.getBoundingClientRect()
+        let obstacle = document.querySelectorAll('.obstacle')
+        obstacle.forEach((element) => {
+            // use bounding properties to evaluate
+            let obstacle_prop = element.getBoundingClientRect()
+            player_prop = player.getBoundingClientRect()
 
-            if (obSprite_props.right <= 0) {
-                // Remove obstacle sprite if it gets to the edge of the screen
+            if (obstacle_prop.right <= 0) {
+                // Remove obstacle if it gets to the edge of the screen
                 element.remove();
             } else {
-                // End game if the player hits the pipes
-                if (player_props.left < obSprite_props.left + obSprite_props.width && plater_props.left + player_props.width > obSprite_props.left && player_props.top < obSprite_props.top + obSprite_props.height && player_props.top + player_props.height > obSprite_props.top) {
+                // End game if obstacle hit
+                if (player_prop.left < obstacle_prop.left + obstacle_prop.width && player_prop.left + player_prop.width > obstacle_prop.left && player_prop.top < obstacle_prop.top + obstacle_prop.height && player_prop.top + player_prop.height > obstacle_prop.top) {
                     // End Game
                     game_state = 'End'
-                    // Send End/Restart message
-                    healthScore.style.display = 'none'
+                    // Send End/Restart popup
+                    popup.innerHTML = 'Game Over'.color('gold') + '<br>Press Enter to Restart'
+                    popup.classList.add('popup')
 
-                    popup.style.display = 'flex'
-                    popupResult.innerHTML = 'You Crashed!'
-                    popupResult.style.fontSize = '2.5rem'
-                    // popupMessage.style.display = 'You sustained too much damage!'
-                    popupScore.style.display = 'none'
-
-                    playButton.style.display = 'none'
-                    instructionsButton.style.display = 'none'
-                    replayButton.style.display = 'block'
-                    backtostartButton.style.display = 'block'
-
-                    player.style.display = 'none'
+                    // Remove player
+                    // img.style.display = 'none'
+                    // player.style.display = 'none'
                     return
                 } else {
                     // If player keeps going, increase score
-                    if (obSprite_props.right < player_props.left && obSprite_props.right + moveSpeed >= player_props.left && element.increase_score == '1'){
+                    if (obstacle_prop.right < player_prop.left && obstacle_prop.right + moveSpeed >= player_prop.left && element.increase_score == '1'){
                         scoreValue.innerHTML =+ scoreValue.innerHTML +1
                     }
-                    element.style.left = obSprite_props.left - moveSpeed + 'px'
+                    element.style.left = obstacle_prop.left - moveSpeed + 'px'
                 }
             }
         })
@@ -117,67 +82,101 @@ document.addEventListener("keydown", function(event) {
     }
     requestAnimationFrame(move)
 
-    // Obstacle Specifics
-    let ob_separation = 0
-    let ob_gap = 35
+    // Move Player
+    document.addEventListener("keydown", function(event) {
+        if (event.key == "ArrowLeft"){
+        //    alert("Left key");
+            l=l-3
+        } else if (event.key == "ArrowUp"){
+            t=t-3
+        //    alert("Up key");
+        } else if (event.key == "ArrowRight"){
+            l=l+3
+        //    alert("Right key");
+        } else if (event.key == "ArrowDown"){
+            t=t+3
+        //    alert("Down key");
+        }
+        // document.getElementById("player").style.top=`${t}vh`
+        // document.getElementById("player").style.left=`${l}vh`
+    
+        player.style.top=`${t}vh`
+        player.style.left=`${l}vh`
+     });
+
+    // let player_move = 0;
+    // function applyGravity() {
+    //     // Ignore if game is not in play
+    //     if (game_state != 'Play') return
+
+    //     // Change image & apply gravity when up arrow is pressed
+    //     player_move = player_move + gravity
+    //     document.addEventListener('keydown', (e) => {
+    //         if (e.key == 'ArrowUp' || e.key == ''){
+    //             // Switch color to show use
+    //             player.style.backgroundColor = 'coral'
+    //             player_move = -7.6;
+    //         }
+    //     })
+        
+    //     // Change image back when up arrow is released
+    //     document.addEventListener('keyup', (e) => {
+    //         if (e.key == 'ArrowUp' || e.key == '') {
+    //             // Switch color to show use
+    //             player.style.backgroundColor = 'aqua'
+    //         }
+    //     })
+
+    //     // End game if player hits ground
+    //     if(player_prop.top <= 0 || player_prop.bottom >= background.bottom) {
+    //         game_state = 'End'
+    //         popup.style.left = '28vw'
+    //         window.location.reload()
+    //         popup.classList.remove('popupStyle')
+    //         return
+    //     }
+    //     player.style.top = player_prop.top + player_move + 'px'
+    //     player_prop = play.getBoundingClientRect()
+    //     requestAnimationFrame(applyGravity)
+    // }
+    // requestAnimationFrame(applyGravity)
+
+    // Obstacle Generation
+    let obstacle_spacing = 0
+    let obstacle_window = 35
 
     function create_obstacle(){
-        if(ob_separation > 115){
-            ob_separation = 0;
+        // Skip if game is not in play
+        if(game_state != 'Play') return;
 
-            // Create obstacles in 2 parts with gap at random interval
-            let obPosition = Math.floor(Math.random() * 43) + 8;
-            let obSprite_inv = document.createElement('div');
-            obSprite_inv.className = 'obSprite';
-            obSprite_inv.style.top = obPosition - 70 + 'vh';
-            obSprite_inv.style.left = '100vw';
+        if(obstacle_spacing > 115){
+            obstacle_spacing = 0;
 
-            document.body.appendChild(obSprite_inv);
-            let obSprite = document.createElement('div');
-            obSprite.className = 'obSprite';
-            obSprite.style.top = obPosition + ob_gap + 'vh';
-            obSprite.style.left = '100vw';
+            // Create obstacles in 2 parts with window at random interval
+            let obstaclePosition = Math.floor(Math.random() * 43) + 8;
+            let obstacleInv = document.createElement('div');
+            obstacleInv.className = 'obstacle';
+            obstacleInv.style.top = obstaclePosition - 70 + 'vh';
+            obstacleInv.style.left = '100vw';
+
+            document.body.appendChild(obstacleInv);
+            let obstacle = document.createElement('div');
+            obstacle.className = 'obstacle';
+            obstacle.style.top = obstacle_spacing + obstacle_window + 'vh';
+            obstacle.style.left = '100vw';
 
             // Incrrease score for every obstacle passed
-            obSprite.increase_score = '1';
+            obstacle.increase_score = '1';
 
-            // Add new obstacle sprites as game progresses
-            document.body.appendChild(obSprite);
+            // Add new obstacles as game progresses
+            document.body.appendChild(obstacle);
         }
-        ob_separation++;
+        obstacle_spacing++;
         requestAnimationFrame(create_obstacle);
     }
     requestAnimationFrame(create_obstacle);
 
 }
-
-// Back to Start Button -> Start Menu
-backtostartButton.addEventListener('click', () => {
-    // Move to Game HTML/CSS/JS
-    window.location.href = "startMenu.html"
-})
-
-
-
-
-// // // Show/Hide Text Components - Result Popup (Win)
-// let gameState = 'End_Win'
-
-// countdown.style.display = 'none'
-// healthScore.style.display = 'none'
-
-// popup.style.display = 'flex'
-// popupResult.innerHTML = 'Congratulations!'
-// popupResult.style.fontSize = '2.5rem'
-// popupMessage.style.display = 'You survived the race!'
-// popupScore.style.display = 'Your Score: '
-
-// playButton.style.display = 'none'
-// instructionsButton.style.display = 'none'
-// replayButton.style.display = 'block'
-// backtostartButton.style.display = 'block'
-
-// player.style.display = 'none'
 
 
 
